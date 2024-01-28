@@ -1,6 +1,7 @@
 import './App.css';
 import State from './components/State'
 import Transition from './components/Transition'
+//https://github.com/Eliav2/react-xarrows/blob/master/README.md#path
 function App() {
 
   const states = []

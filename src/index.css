@@ -20,3 +20,9 @@
   font-weight:500;
   font-family: Helvetica;
 }
+
+.transitionLabel{
+  font-size: 1.5em;
+  /*lifts the label so its visable*/
+  transform: translate(0,-50%);
+}
