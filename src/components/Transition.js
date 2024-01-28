@@ -4,11 +4,12 @@ export default function Transition(props){
     return(
         <div>
             <Xarrow
-                start="q3" //can be react ref
-                end="q4" //or an id
+                start={props.fromState}
+                end={props.toState}
+                startAnchor="right"
                 endAnchor="left"
                 labels= {<div className="transitionLabel">a</div>}
-                path="{smooth}"
+                path="smooth"
                 color="black"
                 strokeWidth={2.5}
             />

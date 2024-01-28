@@ -7,12 +7,12 @@ function App() {
   const states = []
   for (let i = 0; i < 5; i++){
     const stateId = `q${i}`
-    states.push(<State key={i} id={stateId} index={i}/>)
+    states.push(<State key={i} id={stateId} accepting={true}/>)
   }
   return (
     <div className='Automat'>
       {states}
-      <Transition/>
+      <Transition fromState={"q1"} toState={"q4"}/>
 
     </div>
   );

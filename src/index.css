@@ -6,14 +6,20 @@
   display: flex;
   gap: 50px;
 }
-.stateCircle{
+.stateCircle,.acceptingCircle{
   display:flex;
   border-radius: 50%;
-  background-color: blanchedalmond;
+  color: black;
+  border-style: solid;
   width: 5em;
   height: 5em;
   justify-content: center;
   align-items: center;
+}
+
+.acceptingCircle{
+  width: 4em;
+  height: 4em;
 }
 
 .stateText{
