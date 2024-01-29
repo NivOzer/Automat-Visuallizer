@@ -1,5 +1,6 @@
 import React from "react"
 import Xarrow from "react-xarrows";
+import LoopWithLabel from './LoopWithLabel';
 //https://github.com/Eliav2/react-xarrows/blob/master/README.md#path
 export default function Transition(props){
     let transitionProps = {
@@ -11,7 +12,7 @@ export default function Transition(props){
         path: "smooth",
         color: "black",
         strokeWidth: 2.5,
-    };
+      };
     if(props.fromState === "startingpoint"){
         transitionProps.dashness = true
         transitionProps.strokeWidth= 1.4
@@ -19,7 +20,12 @@ export default function Transition(props){
     }
     return(
         <div>
-            <Xarrow {...transitionProps}/>
-        </div>
+        {props.fromState === props.toState ? (
+          <LoopWithLabel stateId={props.fromState} />
+        ) : (
+          <Xarrow className="transition" {...transitionProps} />
+        )}
+      </div>
     )
 }
+

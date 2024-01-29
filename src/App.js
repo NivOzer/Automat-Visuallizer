@@ -21,7 +21,6 @@ F - A list of the automat accepting states
       <div id="startingpoint"></div>
       <Transition fromState={"startingpoint"} toState={"q0"}/>
       <State key={0} id={"q0"} accepting={false}/>
-      <Transition fromState={"q0"} toState={"q1"}/>
       <State key={1} id={"q1"} accepting={true}/>
     </div>
   );
