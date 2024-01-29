@@ -11,19 +11,20 @@
   border-radius: 50%;
   color: black;
   border-style: solid;
-  width: 5em;
-  height: 5em;
+  width: 15vh;
+  height: 15vh;
   justify-content: center;
   align-items: center;
 }
 
 .acceptingCircle{
-  width: 4em;
-  height: 4em;
+  width: 12vh;
+  height: 12vh;
 }
 
 .stateText{
   font-weight:500;
+  font-size: 4vh;
   font-family: Helvetica;
 }
 
