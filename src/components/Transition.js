@@ -5,11 +5,11 @@ export default function Transition(props) {
   //Looks for a loop
   const { fromState, toState, toggleLoopVisibility, input, isVisible } = props;
   useEffect(() => {
-    if (fromState === toState && !props.isVisible) {
-      // Check if loop visibility has not been toggled
+    if (fromState === toState && !isVisible) {
+      console.log(input);
       toggleLoopVisibility(toState, input);
     }
-  }, [fromState, toState, input, isVisible, toggleLoopVisibility]);
+  }, [fromState, toState, input, isVisible]);
 
   let transitionProps = {
     start: props.fromState,

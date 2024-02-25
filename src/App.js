@@ -1,7 +1,7 @@
 import "./App.css";
 import State from "./components/State";
 import Transition from "./components/Transition";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   /*
@@ -31,22 +31,25 @@ F - A list of the automat accepting states
   //FIXME: when p1 is the loop it goes "props" on label
   const [transitions, setTransitions] = useState([
     { fromState: "starting_point", toState: "q0", input: "" },
-    { fromState: "q0", toState: "q0", input: "amazing" },
-    { fromState: "q1", toState: "q2", input: "tran" },
+    { fromState: "q0", toState: "q0", input: "a" },
+    { fromState: "q1", toState: "q2", input: "b" },
+    { fromState: "q3", toState: "q3", input: "c" },
   ]);
 
   // Function to toggle loop visibility
   const toggleLoopVisibility = (id, input) => {
-    setStates(
-      states.map((state) => {
-        if (state.id === id) {
-          return { ...state, isVisible: true, loopInput: input };
-        }
-        return state;
-      })
+    setStates((prevStates) =>
+      prevStates.map((state) =>
+        state.id === id
+          ? { ...state, isVisible: true, loopInput: input }
+          : state
+      )
     );
   };
 
+  useEffect(() => {
+    console.log(states);
+  }, [states]); // Log states only when it changes
   return (
     <div className="Automat">
       {transitions.map((transition, index) => (
