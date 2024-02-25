@@ -22,6 +22,8 @@ F - A list of the automat accepting states
   const [states, setStates] = useState([
     { id: "q0", accepting: false, isVisible: false, loopInput: "" },
     { id: "q1", accepting: true, isVisible: false, loopInput: "" },
+    { id: "q2", accepting: false, isVisible: false, loopInput: "" },
+    { id: "q3", accepting: true, isVisible: false, loopInput: "" },
   ]);
 
   //δ - Transitions
@@ -30,6 +32,7 @@ F - A list of the automat accepting states
   const [transitions, setTransitions] = useState([
     { fromState: "starting_point", toState: "q0", input: "" },
     { fromState: "q0", toState: "q0", input: "amazing" },
+    { fromState: "q1", toState: "q2", input: "tran" },
   ]);
 
   // Function to toggle loop visibility

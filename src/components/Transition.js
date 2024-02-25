@@ -3,13 +3,13 @@ import Xarrow from "react-xarrows";
 //https://github.com/Eliav2/react-xarrows/blob/master/README.md#path
 export default function Transition(props) {
   //Looks for a loop
-  const { fromState, toState, toggleLoopVisibility, input } = props;
+  const { fromState, toState, toggleLoopVisibility, input, isVisible } = props;
   useEffect(() => {
     if (fromState === toState && !props.isVisible) {
       // Check if loop visibility has not been toggled
       toggleLoopVisibility(toState, input);
     }
-  }, []);
+  }, [fromState, toState, input, isVisible, toggleLoopVisibility]);
 
   let transitionProps = {
     start: props.fromState,
