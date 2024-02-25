@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Xarrow from "react-xarrows";
-import LoopWithLabel from "./LoopWithLabel";
 //https://github.com/Eliav2/react-xarrows/blob/master/README.md#path
 export default function Transition(props) {
   //Looks for a loop

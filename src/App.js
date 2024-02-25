@@ -26,14 +26,12 @@ F - A list of the automat accepting states
 
   //δ - Transitions
   //FIXME: when added more than 1 transition the other disappears
+  //FIXME: when p1 is the loop it goes "props" on label
   const [transitions, setTransitions] = useState([
     { fromState: "starting_point", toState: "q0", input: "" },
-    { fromState: "q0", toState: "q0", input: "b" },
+    { fromState: "q0", toState: "q0", input: "amazing" },
   ]);
 
-  const [loopVisibility, setLoopVisibility] = useState(false);
-
-  //FIXME: twice the toggleLoop
   // Function to toggle loop visibility
   const toggleLoopVisibility = (id, input) => {
     setStates(

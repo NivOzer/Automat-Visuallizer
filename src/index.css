@@ -41,7 +41,7 @@ body{
 
 .transitionLabel{
   font-size: 1.5em;
-  /*lifts the label so its visable*/
+  /*lifts the label so its visible*/
   transform: translate(0,-50%);
   margin: 0px;
   padding: 0px;
@@ -82,7 +82,7 @@ body{
 .state{
   display: flex;
   flex-direction: column;
-  justify-content:end;
+  justify-content:flex-end;
   align-items: center;
   position: relative;
   height:25vh;
