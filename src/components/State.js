@@ -1,27 +1,31 @@
-import React from "react"
-import LoopWithLabel from './LoopWithLabel';
-export default function State(props){
-
-    return(
-        <div className="stateContainer">
-        {props.accepting
-        ?
+import React, { useState } from "react";
+import LoopWithLabel from "./LoopWithLabel";
+export default function State(props) {
+  const { isVisible } = props;
+  return (
+    // first is accepting circle seond is regular
+    <div className="stateContainer">
+      {props.accepting ? (
         <div className="state">
-        <LoopWithLabel className="loopWithLabel" stateId={"q1"} />
-        <div id={props.id} className="stateCircle">
-                <div className="acceptingCircle">
-                <h1 className="stateText">{props.id}</h1>
-                </div>
+          {props.isVisible && (
+            <LoopWithLabel stateId={props.fromState} input={props.input} />
+          )}
+          <div id={props.id} className="stateCircle">
+            <div className="acceptingCircle">
+              <h1 className="stateText">{props.id}</h1>
             </div>
+          </div>
         </div>
-        :   
+      ) : (
         <div className="state">
-        <LoopWithLabel className="loopWithLabel" stateId={"q1"} />
-        <div id={props.id} className="stateCircle">
-                <h1 className="stateText">{props.id}</h1>
-            </div>
-            </div>
-            }
+          {props.isVisible && (
+            <LoopWithLabel stateId={props.fromState} input={props.input} />
+          )}
+          <div id={props.id} className="stateCircle">
+            <h1 className="stateText">{props.id}</h1>
+          </div>
         </div>
-    )
+      )}
+    </div>
+  );
 }
