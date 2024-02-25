@@ -1,7 +1,7 @@
 import "./App.css";
 import State from "./components/State";
 import Transition from "./components/Transition";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function App() {
   /*
@@ -20,20 +20,16 @@ F - A list of the automat accepting states
 
   //Q - States
   const [states, setStates] = useState([
-    { id: "q0", accepting: false, isVisible: false, loopInput: "" },
-    { id: "q1", accepting: true, isVisible: false, loopInput: "" },
+    { id: "q0", accepting: true, isVisible: false, loopInput: "" },
+    { id: "q1", accepting: false, isVisible: false, loopInput: "" },
     { id: "q2", accepting: false, isVisible: false, loopInput: "" },
-    { id: "q3", accepting: true, isVisible: false, loopInput: "" },
   ]);
 
   //δ - Transitions
-  //FIXME: when added more than 1 transition the other disappears
-  //FIXME: when p1 is the loop it goes "props" on label
   const [transitions, setTransitions] = useState([
     { fromState: "starting_point", toState: "q0", input: "" },
-    { fromState: "q0", toState: "q0", input: "a" },
-    { fromState: "q2", toState: "q2", input: "c" },
-    { fromState: "q1", toState: "q2", input: "b" },
+    { fromState: "q0", toState: "q1", input: "a" },
+    { fromState: "q2", toState: "q2", input: "a" },
   ]);
 
   // Function to toggle loop visibility
@@ -48,7 +44,7 @@ F - A list of the automat accepting states
   };
 
   return (
-    <div className="Automat">
+    <div class="Automat">
       {transitions.map((transition, index) => (
         <Transition
           key={index}

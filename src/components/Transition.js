@@ -8,7 +8,8 @@ export default function Transition(props) {
     if (fromState === toState && !isVisible) {
       toggleLoopVisibility(toState, input);
     }
-  }, []);
+  });
+  //might need to add empty dependencies array for it to only do it once
 
   let transitionProps = {
     start: props.fromState,
@@ -23,8 +24,9 @@ export default function Transition(props) {
 
   if (props.fromState === "starting_point") {
     transitionProps.dashness = true;
-    transitionProps.strokeWidth = 1.4;
+    transitionProps.strokeWidth = 2.5;
     transitionProps.headSize = 5;
+    transitionProps.curveness = 1;
   }
 
   return (
