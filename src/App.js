@@ -32,8 +32,8 @@ F - A list of the automat accepting states
   const [transitions, setTransitions] = useState([
     { fromState: "starting_point", toState: "q0", input: "" },
     { fromState: "q0", toState: "q0", input: "a" },
-    { fromState: "q1", toState: "q2", input: "b" },
-    { fromState: "q3", toState: "q3", input: "c" },
+    { fromState: "q2", toState: "q2", input: "b" },
+    { fromState: "q2", toState: "q3", input: "d" },
   ]);
 
   // Function to toggle loop visibility
@@ -47,9 +47,7 @@ F - A list of the automat accepting states
     );
   };
 
-  useEffect(() => {
-    console.log(states);
-  }, [states]); // Log states only when it changes
+  useEffect(() => {}, [states]); // Log states only when it changes
   return (
     <div className="Automat">
       {transitions.map((transition, index) => (

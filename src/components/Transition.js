@@ -6,10 +6,9 @@ export default function Transition(props) {
   const { fromState, toState, toggleLoopVisibility, input, isVisible } = props;
   useEffect(() => {
     if (fromState === toState && !isVisible) {
-      console.log(input);
       toggleLoopVisibility(toState, input);
     }
-  }, [fromState, toState, input, isVisible]);
+  }, []);
 
   let transitionProps = {
     start: props.fromState,
