@@ -4,13 +4,11 @@ import LoopWithLabel from "./LoopWithLabel";
 //https://github.com/Eliav2/react-xarrows/blob/master/README.md#path
 export default function Transition(props) {
   //Looks for a loop
-  const { fromState, toState, toggleLoopVisibility } = props;
+  const { fromState, toState, toggleLoopVisibility, input } = props;
   useEffect(() => {
     if (fromState === toState && !props.isVisible) {
       // Check if loop visibility has not been toggled
-      console.log("started transition toggleLoopVisibility");
-      toggleLoopVisibility(toState);
-      console.log("ended transition toggleLoopVisibility");
+      toggleLoopVisibility(toState, input);
     }
   }, []);
 
@@ -25,7 +23,7 @@ export default function Transition(props) {
     strokeWidth: 2.5,
   };
 
-  if (props.fromState === "startingpoint") {
+  if (props.fromState === "starting_point") {
     transitionProps.dashness = true;
     transitionProps.strokeWidth = 1.4;
     transitionProps.headSize = 5;

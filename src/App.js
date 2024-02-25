@@ -20,25 +20,26 @@ F - A list of the automat accepting states
 
   //Q - States
   const [states, setStates] = useState([
-    { id: "q0", accepting: false, isVisible: false },
-    { id: "q1", accepting: true, isVisible: false },
+    { id: "q0", accepting: false, isVisible: false, loopInput: "" },
+    { id: "q1", accepting: true, isVisible: false, loopInput: "" },
   ]);
 
   //δ - Transitions
+  //FIXME: when added more than 1 transition the other disappears
   const [transitions, setTransitions] = useState([
     { fromState: "starting_point", toState: "q0", input: "" },
-    { fromState: "q0", toState: "q1", input: "a" },
+    { fromState: "q0", toState: "q0", input: "b" },
   ]);
 
   const [loopVisibility, setLoopVisibility] = useState(false);
 
+  //FIXME: twice the toggleLoop
   // Function to toggle loop visibility
-  const toggleLoopVisibility = (id) => {
-    console.log(id);
+  const toggleLoopVisibility = (id, input) => {
     setStates(
       states.map((state) => {
         if (state.id === id) {
-          return { ...state, isVisible: true };
+          return { ...state, isVisible: true, loopInput: input };
         }
         return state;
       })
@@ -54,7 +55,9 @@ F - A list of the automat accepting states
           toState={transition.toState}
           input={transition.input}
           isVisible={transition.isVisible}
-          toggleLoopVisibility={() => toggleLoopVisibility(transition.toState)}
+          toggleLoopVisibility={() =>
+            toggleLoopVisibility(transition.toState, transition.input)
+          }
         />
       ))}
       {states.map((state, index) => (
@@ -63,6 +66,7 @@ F - A list of the automat accepting states
           id={state.id}
           accepting={state.accepting}
           isVisible={state.isVisible}
+          loopInput={state.loopInput}
           toggleLoopVisibility={() => toggleLoopVisibility(state.id)}
         />
       ))}
