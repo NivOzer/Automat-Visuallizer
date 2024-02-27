@@ -7,12 +7,12 @@ function Dropdown() {
     setSelectedOption(option);
     setOpen(false);
   };
-  //FIXME: ONLY DFA is clickable
+
   return (
-    <div className="group inline-block relative">
+    <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="outline-none focus:outline-none border h-full px-3 py-1 bg-white flex items-center min-w-32"
+        className="border-none shadow outline-none focus:outline-none border h-full px-3 bg-white flex items-center min-w-32"
       >
         <span className="rounded h-w-full text-gray-700">
           {selectedOption || "Automat Type"}
