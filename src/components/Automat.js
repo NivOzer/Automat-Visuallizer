@@ -42,7 +42,7 @@ function Automat() {
   };
 
   return (
-    <div className="Automat">
+    <div className="Automat" id="automat">
       {transitions.map((transition, index) => (
         <Transition
           key={index}

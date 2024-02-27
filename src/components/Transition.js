@@ -23,10 +23,12 @@ export default function Transition(props) {
   };
 
   if (props.fromState === "starting_point") {
+    transitionProps.start = "automat";
+    transitionProps.startAnchor = "left";
     transitionProps.dashness = true;
     transitionProps.strokeWidth = 2.5;
     transitionProps.headSize = 5;
-    transitionProps.curveness = 1;
+    transitionProps.curveness = 0;
   }
 
   return (
