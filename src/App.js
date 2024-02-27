@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import React from "react";
 
 //TODO: Add Transition positioning from an state to itself
-//TODO: Add input fields that create states
 function App() {
   return (
     <div>

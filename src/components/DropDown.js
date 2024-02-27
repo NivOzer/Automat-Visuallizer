@@ -9,12 +9,12 @@ function Dropdown() {
   };
 
   return (
-    <div className="relative">
+    <div className="min-w-52 relative">
       <button
         onClick={() => setOpen(!open)}
-        className="border-none shadow h-full px-3 bg-white flex items-center min-w-32"
+        className="border-none shadow w-full h-full px-3 bg-white flex items-center"
       >
-        <span className="w-full text-gray-700 opacity-75">
+        <span className="flex w-full text-gray-700 opacity-75">
           {selectedOption || "Automat Type"}
         </span>
         <svg
