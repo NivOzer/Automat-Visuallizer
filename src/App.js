@@ -1,9 +1,7 @@
 import "./App.css";
-import State from "./components/State";
-import Transition from "./components/Transition";
 import Automat from "./components/Automat";
 import Header from "./components/Header";
-import React, { useState } from "react";
+import React from "react";
 
 //TODO: Add Transition positioning from an state to itself
 //TODO: Add input fields that create states
