@@ -6,4 +6,4 @@
 
 > Project Screenshots:
 
-<img src="https://i.postimg.cc/N0MpjFnr/Capture.jpg" alt="project-screenshot">
+<img src="https://i.postimg.cc/qBtJ5wgn/Capture.jpg" alt="project-screenshot">
