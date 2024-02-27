@@ -14,7 +14,7 @@ function Dropdown() {
         onClick={() => setOpen(!open)}
         className="border-none shadow h-full px-3 bg-white flex items-center min-w-32"
       >
-        <span className="text-gray-700 opacity-75">
+        <span className="w-full text-gray-700 opacity-75">
           {selectedOption || "Automat Type"}
         </span>
         <svg
@@ -28,9 +28,9 @@ function Dropdown() {
         </svg>
       </button>
       <ul
-        className={`Options-Animation transform transition duration-150 ease-in-out origin-top min-w-32 ${
+        className={`m-0 p-0 w-full Options-Animation transform transition duration-150 ease-in-out origin-top min-w-32 ${
           open ? "scale-y-100" : "scale-y-0"
-        } absolute top-full left-0 list-none`}
+        } absolute top- left-0 list-none`}
       >
         <li>
           <button
