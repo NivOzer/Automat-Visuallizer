@@ -7,7 +7,7 @@ function Dropdown() {
     setSelectedOption(option);
     setOpen(false);
   };
-
+  //FIXME: ONLY DFA is clickable
   return (
     <div className="group inline-block relative">
       <button
