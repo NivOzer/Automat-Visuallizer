@@ -13,9 +13,10 @@ body{
 }
 .Automat{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content:center;
   gap: 50px;
+  background-color: white;
+  margin-right: 8%;
 }
 .stateCircle,.acceptingCircle{
   position: relative;
@@ -91,7 +92,7 @@ body{
   justify-content:flex-end;
   align-items: center;
   position: relative;
-  height:25vh;
+  height:24vh;
 }
 
 .loopContainer{
