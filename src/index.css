@@ -13,6 +13,8 @@ body{
 }
 .Automat{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 50px;
 }
 .stateCircle,.acceptingCircle{
@@ -66,7 +68,7 @@ body{
   display: block;
   width: 12vh;
   height: 7vh;
-  background: #fff;
+  background-color: white;
   position: absolute;
   bottom: -1.5vh;
   margin-top: auto;
