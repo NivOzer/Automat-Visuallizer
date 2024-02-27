@@ -12,9 +12,9 @@ function Dropdown() {
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="border-none shadow outline-none focus:outline-none border h-full px-3 bg-white flex items-center min-w-32"
+        className="border-none shadow h-full px-3 bg-white flex items-center min-w-32"
       >
-        <span className="rounded h-w-full text-gray-700">
+        <span className="text-gray-700 opacity-75">
           {selectedOption || "Automat Type"}
         </span>
         <svg
@@ -28,14 +28,14 @@ function Dropdown() {
         </svg>
       </button>
       <ul
-        className={`Options w-full rounded-sm transform transition duration-150 ease-in-out origin-top min-w-32 ${
+        className={`Options-Animation transform transition duration-150 ease-in-out origin-top min-w-32 ${
           open ? "scale-y-100" : "scale-y-0"
         } absolute top-full left-0 list-none`}
       >
         <li>
           <button
             onClick={() => handleOptionClick("DFA")}
-            className="border-none bg-neutral-200 h-full w-full px-3 py-1  text-gray-800"
+            className="shadow border-none bg-white w-full px-3 py-2  text-gray-700"
           >
             DFA
           </button>
@@ -43,7 +43,7 @@ function Dropdown() {
         <li>
           <button
             onClick={() => handleOptionClick("NFA")}
-            className="border-none bg-neutral-200 h-full w-full px-3 py-1  text-gray-800"
+            className="shadow border-none bg-white w-full px-3 py-2  text-gray-700"
           >
             NFA
           </button>
