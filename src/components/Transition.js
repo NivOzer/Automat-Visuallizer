@@ -28,7 +28,7 @@ export default function Transition(props) {
     transitionProps.dashness = true;
     transitionProps.strokeWidth = 2.5;
     transitionProps.headSize = 5;
-    transitionProps.curveness = 0;
+    transitionProps.curveness = 0.5;
   }
 
   return (
