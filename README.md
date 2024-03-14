@@ -1,9 +1,17 @@
-# **Automat Visualizer**
+<div style="text-align: center;">
+  <img src="src\images\AutomatVisualizerIconSVG.svg" width="50" style="margin-right: 10px;">
+  <h1 style="font-weight: bold; display: inline;">Automat Visualizer</h1>
+</div>
 
-<img src="https://i.postimg.cc/ZKGfjJ0G/Capture-JPG2.jpg" alt="project-image">
-
-### A Tool for Visualizing Automats DFA/NFA
+<br>
+<div style="text-align:center">
+<img src="src\images\AutomatVisualizerLogoSVG.svg" width="250">
+</div>
+<div align="center">
+  <h5>A Tool for Visualizing Automats DFA/NFA</h5>
+</div>
+### Preview:
 
 > Project Screenshots:
 
-<img src="https://i.postimg.cc/qBtJ5wgn/Capture.jpg" alt="project-screenshot">
+<img src="AppScreenshot.png">
