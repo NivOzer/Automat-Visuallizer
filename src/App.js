@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Header />
-      <div className="AutomatPreview flex justify-center m-0 pb-6 overflow w-full bg-white shadow-md">
+      <div className="AutomatPreview shadow-inner flex justify-center m-0 pb-6 overflow w-full">
         <Automat />
       </div>
     </div>
