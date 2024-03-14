@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div align="center">
   <img src="src\images\AutomatVisualizerIconSVG.svg" width="50" style="margin-right: 10px;">
   <h1 style="font-weight: bold; display: inline;">Automat Visualizer</h1>
 </div>
