@@ -11,7 +11,9 @@
 </div>
 
 <div align="center">
-  <h5>A Tool for Visualizing Automats DFA/NFA</h5>
+  
+  ##### A Tool for Visualizing Automats DFA/NFA
+
 </div>
 
 ### Preview:
