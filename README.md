@@ -5,10 +5,9 @@
 
 <br>
 </div>
-<br>
 
 <div align="center">
-<img src="src\images\AutomatVisualizerLogoSVG.svg" width="350">
+<img src="src\images\AutomatVisualizerLogoSVG.svg" width="400">
 </div>
 
 <div align="center">
