@@ -38,7 +38,7 @@ function Automat({ statesString, transitionsString }) {
       });
     // Update the states state with the parsed states
     setStates(parsedStates);
-  }, [statesString]);
+  }, [statesString, transitionsString]);
 
   //δ - Transitions
   const [transitions, setTransitions] = useState([]);
@@ -60,7 +60,7 @@ function Automat({ statesString, transitionsString }) {
     });
 
     setTransitions(parsedTransitions);
-  }, [transitionsString]);
+  }, [transitionsString, statesString]);
 
   // Function to toggle loop visibility
   const toggleLoopVisibility = (id, input) => {
