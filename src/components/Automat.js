@@ -1,6 +1,6 @@
 import State from "./State";
 import Transition from "./Transition";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 /*
 Automat = (Σ,Q,q0,F,δ)
 Σ - The Automat Alphabet
@@ -15,8 +15,39 @@ F - A list of the automat accepting states
 //   states.push(<State key={i} id={stateId} accepting={true}/>)
 // }
 //TODO: Add Transition positioning from an state to itself
-function Automat() {
+function Automat({ statesString, transitionsString }) {
   //Q - States
+
+  useEffect(() => {
+    // Check if the statesString matches the expected format
+    const isValidFormat =
+      /^\((\w+),(true|false)\)(,\(\w+,(true|false)\))*$/g.test(statesString);
+
+    if (!isValidFormat) {
+      // If the format is not valid, handle the error (e.g., display a message)
+      console.error("Invalid format for statesString:", statesString);
+      return;
+    }
+
+    // Parse the statesString
+    const parsedStates = statesString
+      .split("),") // Split by tuple
+      .map((tuple) => {
+        const [id, accepting] = tuple.replace(/[()]/g, "").split(","); // Split tuple by comma
+        return {
+          id,
+          accepting: accepting === "true",
+          isVisible: false,
+          loopInput: "",
+        };
+      });
+
+    // Update the states state with the parsed states
+    setStates(parsedStates);
+  }, [statesString]);
+
+  useEffect(() => {}, [transitionsString]);
+
   const [states, setStates] = useState([
     { id: "q0", accepting: true, isVisible: false, loopInput: "" },
     { id: "q1", accepting: false, isVisible: false, loopInput: "" },
