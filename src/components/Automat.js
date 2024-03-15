@@ -17,12 +17,11 @@ F - A list of the automat accepting states
 //TODO: Add Transition positioning from an state to itself
 function Automat({ statesString, transitionsString }) {
   //Q - States
-
+  const [states, setStates] = useState([]);
   useEffect(() => {
     const isValidFormat =
       /^\((\w+),(true|false)\)(,\(\w+,(true|false)\))*$/g.test(statesString);
     if (!isValidFormat) {
-      console.error("Invalid format for statesString:", statesString);
       return;
     }
     // Parse the statesString
@@ -41,14 +40,13 @@ function Automat({ statesString, transitionsString }) {
     setStates(parsedStates);
   }, [statesString]);
 
-  const [states, setStates] = useState([]);
-
+  //δ - Transitions
+  const [transitions, setTransitions] = useState([]);
   useEffect(() => {
     const isValidFormat =
       /^(\(\w+,\w+,[\w\s]*\),)*(\(\w+,\w+,[\w\s]*\))$/g.test(transitionsString);
 
     if (!isValidFormat) {
-      console.error("Invalid format for transitionsString:", transitionsString);
       return;
     }
 
@@ -64,19 +62,31 @@ function Automat({ statesString, transitionsString }) {
     setTransitions(parsedTransitions);
   }, [transitionsString]);
 
-  //δ - Transitions
-  const [transitions, setTransitions] = useState([]);
-
   // Function to toggle loop visibility
   const toggleLoopVisibility = (id, input) => {
-    setStates((prevStates) =>
-      prevStates.map((state) =>
+    setStates((prevStates) => {
+      const newState = prevStates.map((state) =>
         state.id === id
           ? { ...state, isVisible: true, loopInput: input }
           : state
-      )
-    );
+      );
+      return newState;
+    });
   };
+
+  // Call toggleLoopVisibility once after transitions are parsed
+  useEffect(() => {
+    transitions.forEach((transition) => {
+      toggleLoopVisibility(transition.toState, transition.input);
+    });
+  }, [transitions]);
+
+  useEffect(() => {
+    // Call toggleLoopVisibility function here with necessary parameters
+    transitions.forEach((transition) => {
+      toggleLoopVisibility(transition.toState, transition.input);
+    });
+  }, [transitions]);
 
   return (
     <div className="Automat" id="automat">

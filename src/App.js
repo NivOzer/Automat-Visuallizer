@@ -1,9 +1,9 @@
 import "./App.css";
 import Automat from "./components/Automat";
 import Header from "./components/Header";
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 
-//TODO: Add Transition positioning from an state to itself
+//TODO: (q0,q0,a),(q0,q1,b) transitions are bugged
 function App() {
   const [statesString, setStatesString] = useState("");
   const [transitionsString, setTransitionsString] = useState("");

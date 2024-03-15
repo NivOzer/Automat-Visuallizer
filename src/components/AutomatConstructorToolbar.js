@@ -1,19 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Dropdown from "./DropDown";
 import InputField from "./InputField";
 function AutomatConstructorToolbar({ onTransitionsChange, onStatesChange }) {
-  // const [states, setStates] = useState([
-  //   { id: "q0", accepting: true, isVisible: false, loopInput: "" },
-  //   { id: "q1", accepting: false, isVisible: false, loopInput: "" },
-  //   { id: "q2", accepting: false, isVisible: false, loopInput: "" },
-  // ]);
-
-  // //δ - Transitions
-  // const [transitions, setTransitions] = useState([
-  //   { fromState: "starting_point", toState: "q0", input: "" },
-  //   { fromState: "q0", toState: "q1", input: "a" },
-  //   { fromState: "q2", toState: "q2", input: "a" },
-  // ]);
   const handleTransitionsField = (event) => {
     const inputValue = event.target.value.trim();
     onTransitionsChange(inputValue); // Pass input value to Header

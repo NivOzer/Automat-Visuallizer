@@ -8,7 +8,7 @@ export default function Transition(props) {
     if (fromState === toState && !isVisible) {
       toggleLoopVisibility(toState, input);
     }
-  });
+  }, []);
   //might need to add empty dependencies array for it to only do it once
 
   let transitionProps = {
