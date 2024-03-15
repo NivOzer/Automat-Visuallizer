@@ -19,16 +19,12 @@ function Automat({ statesString, transitionsString }) {
   //Q - States
 
   useEffect(() => {
-    // Check if the statesString matches the expected format
     const isValidFormat =
       /^\((\w+),(true|false)\)(,\(\w+,(true|false)\))*$/g.test(statesString);
-
     if (!isValidFormat) {
-      // If the format is not valid, handle the error (e.g., display a message)
       console.error("Invalid format for statesString:", statesString);
       return;
     }
-
     // Parse the statesString
     const parsedStates = statesString
       .split("),") // Split by tuple
@@ -41,25 +37,35 @@ function Automat({ statesString, transitionsString }) {
           loopInput: "",
         };
       });
-
     // Update the states state with the parsed states
     setStates(parsedStates);
   }, [statesString]);
 
-  useEffect(() => {}, [transitionsString]);
+  const [states, setStates] = useState([]);
 
-  const [states, setStates] = useState([
-    { id: "q0", accepting: true, isVisible: false, loopInput: "" },
-    { id: "q1", accepting: false, isVisible: false, loopInput: "" },
-    { id: "q2", accepting: false, isVisible: false, loopInput: "" },
-  ]);
+  useEffect(() => {
+    const isValidFormat =
+      /^(\(\w+,\w+,[\w\s]*\),)*(\(\w+,\w+,[\w\s]*\))$/g.test(transitionsString);
+
+    if (!isValidFormat) {
+      console.error("Invalid format for transitionsString:", transitionsString);
+      return;
+    }
+
+    const parsedTransitions = transitionsString.split("),").map((tuple) => {
+      const [fromState, toState, input] = tuple.replace(/[()]/g, "").split(",");
+      return {
+        fromState,
+        toState,
+        input,
+      };
+    });
+
+    setTransitions(parsedTransitions);
+  }, [transitionsString]);
 
   //δ - Transitions
-  const [transitions, setTransitions] = useState([
-    { fromState: "starting_point", toState: "q0", input: "" },
-    { fromState: "q0", toState: "q1", input: "a" },
-    { fromState: "q2", toState: "q2", input: "a" },
-  ]);
+  const [transitions, setTransitions] = useState([]);
 
   // Function to toggle loop visibility
   const toggleLoopVisibility = (id, input) => {
