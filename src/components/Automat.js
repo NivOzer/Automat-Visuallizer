@@ -19,6 +19,10 @@ function Automat({ statesString, transitionsString }) {
   //Q - States
   const [states, setStates] = useState([]);
   useEffect(() => {
+    if (statesString.trim() === "") {
+      setStates([]);
+      return;
+    }
     const isValidFormat =
       /^\((\w+),(true|false)\)(,\(\w+,(true|false)\))*$/g.test(statesString);
     if (!isValidFormat) {
