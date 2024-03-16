@@ -67,7 +67,6 @@ function Automat({ statesString, transitionsString }) {
 
     setTransitions(parsedTransitions);
   }, [transitionsString, statesString]);
-  console.log(transitions);
 
   // Function to toggle loop visibility
   const toggleLoopVisibility = (id, input) => {

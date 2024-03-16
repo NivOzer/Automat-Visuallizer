@@ -3,7 +3,8 @@ import Automat from "./components/Automat";
 import Header from "./components/Header";
 import { React, useState } from "react";
 
-//TODO: (q0,q0,a),(q0,q1,b) transitions are bugged
+//TODO: Loops like(q2,q2,c) sometimes have label as q2 instead of c
+
 function App() {
   const [statesString, setStatesString] = useState("");
   const [transitionsString, setTransitionsString] = useState("");
