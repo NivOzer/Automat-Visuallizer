@@ -43,6 +43,12 @@ function Automat({ statesString, transitionsString }) {
   //δ - Transitions
   const [transitions, setTransitions] = useState([]);
   useEffect(() => {
+    // If transitionsString is empty, set transitions to an empty array and return
+    if (transitionsString.trim() === "") {
+      setTransitions([]);
+      return;
+    }
+
     const isValidFormat =
       /^(\(\w+,\w+,[\w\s]*\),)*(\(\w+,\w+,[\w\s]*\))$/g.test(transitionsString);
 
@@ -61,6 +67,7 @@ function Automat({ statesString, transitionsString }) {
 
     setTransitions(parsedTransitions);
   }, [transitionsString, statesString]);
+  console.log(transitions);
 
   // Function to toggle loop visibility
   const toggleLoopVisibility = (id, input) => {
