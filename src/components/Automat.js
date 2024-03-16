@@ -74,17 +74,12 @@ function Automat({ statesString, transitionsString }) {
     });
   };
 
-  // Call toggleLoopVisibility once after transitions are parsed
-  useEffect(() => {
-    transitions.forEach((transition) => {
-      toggleLoopVisibility(transition.toState, transition.input);
-    });
-  }, [transitions]);
-
   useEffect(() => {
     // Call toggleLoopVisibility function here with necessary parameters
     transitions.forEach((transition) => {
-      toggleLoopVisibility(transition.toState, transition.input);
+      if (transition.fromState === transition.toState) {
+        toggleLoopVisibility(transition.toState, transition.input);
+      }
     });
   }, [transitions]);
 
@@ -98,7 +93,11 @@ function Automat({ statesString, transitionsString }) {
           input={transition.input}
           isVisible={transition.isVisible}
           toggleLoopVisibility={() =>
-            toggleLoopVisibility(transition.toState, transition.input)
+            toggleLoopVisibility(
+              transition.toState,
+              transition.fromState,
+              transition.input
+            )
           }
         />
       ))}
