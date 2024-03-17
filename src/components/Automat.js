@@ -74,6 +74,7 @@ function Automat({ statesString, transitionsString }) {
 
   // Function to toggle loop visibility
   const toggleLoopVisibility = (id, input) => {
+    console.log(input);
     setStates((prevStates) => {
       const newState = prevStates.map((state) =>
         state.id === id
@@ -105,7 +106,7 @@ function Automat({ statesString, transitionsString }) {
           toggleLoopVisibility={() =>
             toggleLoopVisibility(
               transition.toState,
-              transition.fromState,
+
               transition.input
             )
           }
