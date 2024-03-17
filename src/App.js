@@ -3,8 +3,6 @@ import Automat from "./components/Automat";
 import Header from "./components/Header";
 import { React, useState } from "react";
 
-//TODO: Loops like(q2,q2,c) sometimes have label as q2 instead of c
-//TODO: States don't disappear after ""
 function App() {
   const [statesString, setStatesString] = useState("");
   const [transitionsString, setTransitionsString] = useState("");
