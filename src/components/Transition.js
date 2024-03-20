@@ -3,18 +3,20 @@ import Xarrow from "react-xarrows";
 //https://github.com/Eliav2/react-xarrows/blob/master/README.md#path
 export default function Transition(props) {
   //Looks for a loop
-  const { fromState, toState, toggleLoopVisibility, input, isVisible } = props;
+  const { fromState, toState, toggleLoopVisibility, offset, input, isVisible } =
+    props;
   useEffect(() => {
     if (fromState === toState && !isVisible) {
       toggleLoopVisibility(toState, input);
     }
   }, []);
   //might need to add empty dependencies array for it to only do it once
-
+  console.log(props.offset);
   let transitionProps = {
     start: props.fromState,
     end: props.toState,
     startAnchor: "right",
+
     endAnchor: "left",
     labels: <div className="transitionLabel">{props.input}</div>,
     path: "smooth",
@@ -35,8 +37,23 @@ export default function Transition(props) {
   if (
     parseInt(fromState.replace("q", "")) > parseInt(toState.replace("q", ""))
   ) {
-    transitionProps.startAnchor = "left";
-    transitionProps.endAnchor = "right";
+    transitionProps.startAnchor = {
+      position: "left",
+      offset: { y: -props.offset },
+    };
+    transitionProps.endAnchor = {
+      position: "right",
+      offset: { y: -props.offset },
+    };
+  } else if (offset != 0) {
+    transitionProps.startAnchor = {
+      position: "right",
+      offset: { y: -props.offset },
+    };
+    transitionProps.endAnchor = {
+      position: "left",
+      offset: { y: -props.offset },
+    };
   }
 
   return (

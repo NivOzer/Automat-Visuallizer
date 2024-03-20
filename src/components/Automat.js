@@ -49,6 +49,7 @@ function Automat({ statesString, transitionsString }) {
 
   //δ - Transitions
   const [transitions, setTransitions] = useState([]);
+  const [offsets, setOffsets] = useState({});
   useEffect(() => {
     // If transitionsString is empty, set transitions to an empty array and return
     if (transitionsString.trim() === "") {
@@ -104,13 +105,16 @@ function Automat({ statesString, transitionsString }) {
       );
     }
 
+    const updatedOffsets = {}; // Temporary object to hold new offsets
     for (let i = 0; i < transitions.length; i++) {
       for (let j = i + 1; j < transitions.length; j++) {
         if (areOpposite(transitions[i], transitions[j])) {
-          console.log("X");
+          updatedOffsets[`${i}`] = 20; // Set offset for first transition
+          updatedOffsets[`${j}`] = -20; // Set offset for second transition
         }
       }
     }
+    setOffsets(updatedOffsets); // Update offsets
   }, [transitions]);
 
   return (
@@ -129,6 +133,7 @@ function Automat({ statesString, transitionsString }) {
               transition.input
             )
           }
+          offset={offsets[`${index}`] || 0}
         />
       ))}
       {states.map((state, index) => (
