@@ -1,5 +1,6 @@
 import React from "react";
 import AutomatConstructorToolbar from "./AutomatConstructorToolbar";
+import PromptBaseCompletion from "./PromptBaseCompletion";
 import icon from "../images/AutomatVisualizerIconSVG.svg";
 import logo from "../images/AutomatVisualizerLogoSVG.svg";
 function Header({ onTransitionsChange, onStatesChange }) {
@@ -14,6 +15,7 @@ function Header({ onTransitionsChange, onStatesChange }) {
         onTransitionsChange={onTransitionsChange}
         onStatesChange={onStatesChange}
       />
+      <PromptBaseCompletion />
     </div>
   );
 }
