@@ -15,7 +15,7 @@ F - A list of the automat accepting states
 //   states.push(<State key={i} id={stateId} accepting={true}/>)
 // }
 //FIXME: ERROR while type module in package.json when doing transitions
-//TODO: Add Transition positioning from an state to itself
+
 function Automat({ statesString, transitionsString }) {
   //Q - States
   console.log(transitionsString);
@@ -88,6 +88,7 @@ function Automat({ statesString, transitionsString }) {
     });
   };
 
+  //Transition Conditions
   useEffect(() => {
     // Call toggleLoopVisibility function here with necessary parameters
     transitions.forEach((transition) => {
@@ -95,6 +96,21 @@ function Automat({ statesString, transitionsString }) {
         toggleLoopVisibility(transition.toState, transition.input);
       }
     });
+
+    function areOpposite(transition1, transition2) {
+      return (
+        transition1.fromState === transition2.toState &&
+        transition1.toState === transition2.fromState
+      );
+    }
+
+    for (let i = 0; i < transitions.length; i++) {
+      for (let j = i + 1; j < transitions.length; j++) {
+        if (areOpposite(transitions[i], transitions[j])) {
+          console.log("X");
+        }
+      }
+    }
   }, [transitions]);
 
   return (
