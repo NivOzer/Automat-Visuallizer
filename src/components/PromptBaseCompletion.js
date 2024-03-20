@@ -1,5 +1,6 @@
 import React from "react";
 import apiKey from "./OpenAI-Key";
+
 function PromptBaseCompletion() {
   return (
     <div className="w-6/12">
