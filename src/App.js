@@ -1,6 +1,6 @@
 import "./App.css";
-import Automat from "./components/Automat";
-import Header from "./components/Header";
+import Automat from "./components/Automat.js";
+import Header from "./components/Header.js";
 import { React, useState } from "react";
 
 function App() {

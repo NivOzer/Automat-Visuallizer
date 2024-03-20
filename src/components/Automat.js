@@ -1,5 +1,5 @@
-import State from "./State";
-import Transition from "./Transition";
+import State from "./State.js";
+import Transition from "./Transition.js";
 import React, { useState, useEffect } from "react";
 /*
 Automat = (Σ,Q,q0,F,δ)

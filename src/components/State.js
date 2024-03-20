@@ -1,5 +1,5 @@
 import React from "react";
-import LoopWithLabel from "./LoopWithLabel";
+import LoopWithLabel from "./LoopWithLabel.js";
 export default function State(props) {
   return (
     // first is accepting circle second is regular

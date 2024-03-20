@@ -1,6 +1,6 @@
 import React from "react";
-import Dropdown from "./DropDown";
-import InputField from "./InputField";
+import Dropdown from "./DropDown.js";
+import InputField from "./InputField.js";
 function AutomatConstructorToolbar({ onTransitionsChange, onStatesChange }) {
   const handleTransitionsField = (event) => {
     const inputValue = event.target.value.trim();

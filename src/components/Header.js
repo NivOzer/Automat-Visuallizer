@@ -1,6 +1,6 @@
 import React from "react";
-import AutomatConstructorToolbar from "./AutomatConstructorToolbar";
-import PromptBaseCompletion from "./PromptBaseCompletion";
+import AutomatConstructorToolbar from "./AutomatConstructorToolbar.js";
+import PromptBaseCompletion from "./PromptBaseCompletion.js";
 import icon from "../images/AutomatVisualizerIconSVG.svg";
 import logo from "../images/AutomatVisualizerLogoSVG.svg";
 function Header({ onTransitionsChange, onStatesChange }) {
