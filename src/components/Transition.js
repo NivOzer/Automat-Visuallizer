@@ -31,6 +31,14 @@ export default function Transition(props) {
     transitionProps.curveness = 0.5;
   }
 
+  //checks for the side of the arrow LTR
+  if (
+    parseInt(fromState.replace("q", "")) > parseInt(toState.replace("q", ""))
+  ) {
+    transitionProps.startAnchor = "left";
+    transitionProps.endAnchor = "right";
+  }
+
   return (
     <div>
       {props.fromState === props.toState ? null : (

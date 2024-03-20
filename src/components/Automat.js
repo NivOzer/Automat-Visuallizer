@@ -14,9 +14,12 @@ F - A list of the automat accepting states
 //   const stateId = `q${i}`
 //   states.push(<State key={i} id={stateId} accepting={true}/>)
 // }
+//FIXME: ERROR while type module in package.json when doing transitions
 //TODO: Add Transition positioning from an state to itself
 function Automat({ statesString, transitionsString }) {
   //Q - States
+  console.log(transitionsString);
+  transitionsString.toString();
   const [states, setStates] = useState([]);
   useEffect(() => {
     if (statesString.trim() === "") {
