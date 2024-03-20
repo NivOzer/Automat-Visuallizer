@@ -13,11 +13,11 @@ body{
 }
 .Automat{
   display: flex;
-  justify-content:center;
   gap: 50px;
   background-color: white;
-  margin-right: 8%;
+  margin-right:22%;
 }
+
 .stateCircle,.acceptingCircle{
   position: relative;
   z-index: 1;
