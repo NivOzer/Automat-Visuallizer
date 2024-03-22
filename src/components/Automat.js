@@ -98,6 +98,11 @@ function Automat({ statesString, transitionsString }) {
       }
     });
 
+    // Sorting transitions array by fromState
+    transitions.sort((a, b) => {
+      return a.fromState.localeCompare(b.fromState);
+    });
+
     function areOpposite(transition1, transition2) {
       return (
         transition1.fromState === transition2.toState &&
@@ -109,12 +114,14 @@ function Automat({ statesString, transitionsString }) {
     for (let i = 0; i < transitions.length; i++) {
       for (let j = i + 1; j < transitions.length; j++) {
         if (areOpposite(transitions[i], transitions[j])) {
-          updatedOffsets[`${i}`] = 20; // Set offset for first transition
-          updatedOffsets[`${j}`] = -20; // Set offset for second transition
+          updatedOffsets[`${i}`] = -20; // Set offset for first transition
+          updatedOffsets[`${j}`] = 20; // Set offset for second transition
         }
       }
     }
     setOffsets(updatedOffsets); // Update offsets
+
+    console.log(transitions);
   }, [transitions]);
 
   return (

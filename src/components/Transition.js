@@ -34,25 +34,27 @@ export default function Transition(props) {
   }
 
   //checks for the side of the arrow LTR
-  if (
-    parseInt(fromState.replace("q", "")) > parseInt(toState.replace("q", ""))
-  ) {
+  const fromStateNum = parseInt(fromState.replace("q", ""));
+  const toStateNum = parseInt(toState.replace("q", ""));
+  if (fromStateNum > toStateNum) {
+    console.log(fromStateNum, toStateNum);
+    console.log(fromStateNum > toStateNum);
     transitionProps.startAnchor = {
       position: "left",
-      offset: { y: -props.offset },
+      offset: { y: props.offset },
     };
     transitionProps.endAnchor = {
       position: "right",
-      offset: { y: -props.offset },
+      offset: { y: props.offset },
     };
   } else if (offset != 0) {
     transitionProps.startAnchor = {
       position: "right",
-      offset: { y: -props.offset },
+      offset: { y: props.offset },
     };
     transitionProps.endAnchor = {
       position: "left",
-      offset: { y: -props.offset },
+      offset: { y: props.offset },
     };
   }
 
